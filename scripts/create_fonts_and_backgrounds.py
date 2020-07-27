@@ -137,7 +137,7 @@ if __name__ == '__main__':
     def compute_metrics(filepath):
         image = keras_ocr.tools.read(filepath)
         aspect_ratio = image.shape[0] / image.shape[1]
-        contour, _ = keras_ocr.tools.get_maximum_uniform_contour(image, fontsize=40)
+        contour, _ = keras_ocr.data_generation.get_maximum_uniform_contour(image, fontsize=40)
         area = cv2.contourArea(contour) if contour is not None else 0
         return aspect_ratio, area
 
